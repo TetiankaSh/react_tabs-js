@@ -1,4 +1,13 @@
 export const Tabs = ({ tabs, activeTabId, onTabSelected }) => {
+  if (!tabs || tabs.length === 0) {
+    return (
+      <>
+        <ul />
+        <div className="block" data-cy="TabContent" />
+      </>
+    );
+  }
+
   const activeTab = tabs.find(tab => tab.id === activeTabId) || tabs[0];
 
   return (
